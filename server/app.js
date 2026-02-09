@@ -3,30 +3,34 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
-
-// Load environment variables
 dotenv.config();
 
-// Import routes
 const knowledgeRoutes = require('./routes/knowledgeRoutes');
 const aiRoutes = require('./routes/aiRoutes');
 const authRoutes = require('./routes/authRoutes');
-
-// Import middleware
 const authMiddleware = require('./middleware/auth');
 const { errorHandler } = require('./middleware/errorHandler');
 
-// Import database
+
 const database = require('./config/database');
-
 const app = express();
-
-// Connect to database
 database.connect();
+
+// CORS Configuration
+const corsOptions = {
+  origin: [
+    'https://second-brain-app-client.vercel.app',
+    'http://localhost:3000'
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  optionsSuccessStatus: 200
+};
 
 // Middleware
 app.use(helmet());
-app.use(cors(authMiddleware.corsOptions));
+app.use(cors(corsOptions));
 app.use(morgan('dev'));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
