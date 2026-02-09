@@ -35,6 +35,20 @@ app.use(morgan('dev'));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
+// Add this right after middleware
+app.get('/', (req, res) => {
+  const baseUrl = `${req.protocol}://${req.get('host')}`;
+  res.json({
+    name: 'Second Brain API',
+    version: '1.0.0',
+    status: 'operational',
+    docs: `${baseUrl}/api-docs`,
+    health: `${baseUrl}/health`,
+    publicAPI: `${baseUrl}/api/public/brain/query`,
+    frontend: 'https://second-brain-app-client.vercel.app'
+  });
+});
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.json({
@@ -76,7 +90,7 @@ app.get('/api/public/brain/query', (req, res, next) => {
 // 404 handler
 app.use('*', (req, res) => {
   if (req.originalUrl === '/') {
-    
+
     res.redirect('/api-docs');
   } else {
     res.status(404).json({
