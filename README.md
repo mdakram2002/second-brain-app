@@ -58,9 +58,10 @@ POST /api/auth/register - User registration
 POST /api/auth/login - User login
 POST /api/auth/logout - User logout
 
-``
+```
 
 **Knowledge Items**
+
 ```
 GET /api/items - Get all items (with filtering)
 POST /api/items - Create new item
