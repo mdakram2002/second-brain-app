@@ -75,10 +75,24 @@ app.get('/api/public/brain/query', (req, res, next) => {
 
 // 404 handler
 app.use('*', (req, res) => {
-  res.status(404).json({
-    success: false,
-    error: 'Route not found'
-  });
+  if (req.originalUrl === '/') {
+    
+    res.redirect('/api-docs');
+  } else {
+    res.status(404).json({
+      success: false,
+      error: `Route ${req.originalUrl} not found`,
+      availableEndpoints: [
+        '/',
+        '/health',
+        '/api-docs',
+        '/api/public/brain/query',
+        '/api/knowledge',
+        '/api/ai',
+        '/api/auth'
+      ]
+    });
+  }
 });
 
 // Error handler
