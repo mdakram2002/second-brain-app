@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -167,7 +168,7 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
               <Link href="/dashboard">
-                <button className="px-8 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-semibold text-lg">
+                <button className="px-8 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-semibold text-lg">
                   Get Started Free
                 </button>
               </Link>
@@ -186,11 +187,19 @@ export default function Home() {
             transition={{ delay: 0.4 }}
             className="relative mx-auto max-w-5xl"
           >
-            <div className="bg-white rounded-2xl shadow-2xl p-2 border border-gray-200">
-              <div className="bg-linear-to-br from-gray-50 to-gray-100 rounded-xl h-64 md:h-96 flex items-center justify-center">
-                <div className="text-center">
-                  <Brain className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-500">Interactive Dashboard Preview</p>
+            <div className="bg-white rounded-2xl shadow-2xl p-2 border border-gray-200 overflow-hidden">
+              <div className="relative rounded-xl h-64 md:h-96 bg-linear-to-br from-gray-50 to-gray-100">
+                <Image
+                  src="/dashboard.png"
+                  alt="Interactive Dashboard Preview"
+                  fill
+                  className="object-contain p-4"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
+                  priority
+                />
+                {/* Optional: Overlay text for the image */}
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-lg">
+                  <p className="text-sm font-medium">Interactive Dashboard Preview</p>
                 </div>
               </div>
             </div>
