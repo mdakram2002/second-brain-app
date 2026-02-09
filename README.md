@@ -130,6 +130,7 @@ POST   /api/items/:id/favorite   # Toggle favorite
 
 ---
 
+### Folder Structure
 ```
 second-brain-app/
 │
