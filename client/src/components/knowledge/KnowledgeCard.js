@@ -75,10 +75,8 @@ export default function KnowledgeCard({ item, listView = false }) {
     });
   };
 
-  // For list view - limit content to 15 words
-  const listViewContent = limitWords(item.content, 15);
 
-  // For grid view - limit content to 15 words
+  const listViewContent = limitWords(item.content, 15);
   const gridViewContent = limitWords(item.content, 15);
 
   if (listView) {
@@ -105,7 +103,7 @@ export default function KnowledgeCard({ item, listView = false }) {
               </div>
             </div>
 
-            <p className="text-gray-600 text-sm line-clamp-2 mb-3 min-h-[40px]">
+            <p className="text-gray-600 text-sm line-clamp-2 mb-3 min-h-10">
               {listViewContent}
             </p>
 
@@ -255,11 +253,11 @@ export default function KnowledgeCard({ item, listView = false }) {
       </div>
 
       {/* Card Content */}
-      <h3 className="font-bold text-gray-900 text-lg mb-3 line-clamp-2 min-h-[56px]">
+      <h3 className="font-bold text-gray-900 text-lg mb-3 line-clamp-2 min-h-14">
         {item.title}
       </h3>
 
-      <p className="text-gray-600 text-sm mb-4 flex-grow min-h-[72px]">
+      <p className="text-gray-600 text-sm mb-4 grow min-h-18">
         {gridViewContent}
       </p>
 

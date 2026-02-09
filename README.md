@@ -44,12 +44,32 @@ A **modern, responsive full-stack web application** for managing and organizing 
 
 ### Dev & Tooling
 - ESLint & Prettier
-- Husky (Git hooks)
-- Jest & React Testing Library
-- Storybook
-- Docker & Docker Compose
+- VS Code
+- Postman API
+- Gemini AI
 
 ---
+
+
+**API Endpoints**
+```
+Authentication
+POST /api/auth/register - User registration
+POST /api/auth/login - User login
+POST /api/auth/logout - User logout
+
+``
+
+**Knowledge Items**
+```
+GET /api/items - Get all items (with filtering)
+POST /api/items - Create new item
+GET /api/items/:id - Get single item
+PUT /api/items/:id - Update item
+DELETE /api/items/:id - Delete item
+POST /api/items/:id/favorite - Toggle favorite
+
+```
 
 ## 📁 Project Structure
 
