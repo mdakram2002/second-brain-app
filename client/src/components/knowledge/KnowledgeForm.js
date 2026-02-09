@@ -269,16 +269,20 @@ export default function KnowledgeForm({
         >
           Cancel
         </Button>
-        <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? (
-            <>
-              <Loader className="w-4 h-4 mr-2 animate-spin" />
-              Saving...
-            </>
-          ) : (
-            "Save Knowledge"
-          )}
-        </Button>
+<Button
+  type="submit"
+  disabled={isSubmitting}
+  className="bg-gray-900 text-white hover:bg-gray-800 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed px-6 py-3 rounded-lg font-medium transition-colors"
+>
+  {isSubmitting ? (
+    <>
+      <Loader className="w-4 h-4 mr-2 animate-spin" />
+      Saving...
+    </>
+  ) : (
+    "Save Knowledge"
+  )}
+</Button>
       </div>
     </form>
   );
