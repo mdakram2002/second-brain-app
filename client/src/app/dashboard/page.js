@@ -143,13 +143,13 @@ export default function Dashboard() {
                   <Filter className="w-4 h-4 mr-2" />
                   Filters
                 </Button>
-<Button
-  href="/dashboard/knowledge/new"
-  className="hover:shadow-md transition-shadow text-[14px] bg-gray-800 text-white hover:bg-gray-900 px-5 py-1 rounded-lg font-medium"
->
-  <Plus className="w-4 h-4 mr-2" />
-  Add Knowledge
-</Button>
+                <Button
+                  href="/dashboard/knowledge/new"
+                  className="hover:shadow-md transition-shadow text-[14px] bg-gray-800 text-white hover:bg-gray-900 px-5 py-1 rounded-lg font-medium"
+                >
+                  <Plus className="w-4 h-4 mr-2" />
+                  Add Knowledge
+                </Button>
               </div>
             </div>
 
